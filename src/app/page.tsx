@@ -1,7 +1,7 @@
-import Image from "next/image";
+import Link from 'next/link'
 import styles from "./page.module.css";
 
-export default function Home() {
+const Home: React.FC = () => {
   return (
     <main className={styles.main}>
       <section className={styles.slotsContainer}>
@@ -9,7 +9,7 @@ export default function Home() {
         <div style={{display: "flex"}}>
           <div>
             <div>
-              <button className={styles.slotBtn}><a href="./">09:00</a></button>
+              <button className={styles.slotBtn}><Link href="/Appointment">09:00</Link></button>
               <button className={styles.slotBtn}>12:00</button>
               <button className={styles.slotBtn}>14:00</button>
               <button className={styles.slotBtn}>18:00</button>
@@ -29,4 +29,6 @@ export default function Home() {
       </section>
     </main>
   );
-}
+};
+
+export default Home;

@@ -36,7 +36,14 @@
 
 /* Mobile */
 @media (max-width: 700px) {
+  .main {
+    padding: 2rem;
+    justify-content: center;
+  }
 
+  .slotsContainer {
+    flex-direction: column;
+  }
 }
 
 /* Tablet and Smaller Desktop */
