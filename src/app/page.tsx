@@ -9,7 +9,7 @@ const Home: React.FC = () => {
         <div style={{display: "flex"}}>
           <div>
             <div>
-              <button className={styles.slotBtn}><Link href="/Appointment">09:00</Link></button>
+              <button className={styles.slotBtn}><Link href="/AppointmentForm">09:00</Link></button>
               <button className={styles.slotBtn}>12:00</button>
               <button className={styles.slotBtn}>14:00</button>
               <button className={styles.slotBtn}>18:00</button>

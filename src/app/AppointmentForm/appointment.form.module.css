@@ -1,0 +1,24 @@
+.modal {
+    width: 60vw;
+    height: 80vh;
+    margin: 3vh auto;
+}
+
+.form {
+    height: 100%;
+    padding: 12px 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.totalContainer {
+    background-color: blanchedalmond;
+    border-radius: 20px;
+}
+.totalPrice {
+    font-weight: 700;
+    font-size: 26px;
+    align-self: center;
+    margin-right: 20px;
+}
