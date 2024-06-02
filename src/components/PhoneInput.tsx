@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Controller } from "react-hook-form";
 import { TextField } from "@mui/material";
 
-const PhoneInput = (props: any) => {
+const PhoneInput = (props: any) => { //TODO change any on PhoneInputProps type
     const { name, control, ...restProps } = props;
     const [telValue, setTelValue] = useState("+7 (999) 720 - 77 - 88");
 
