@@ -14,6 +14,8 @@ import Checkbox from "@mui/material/Checkbox";
 import Button from "@mui/material/Button";
 import Image from "next/image";
 
+import DatePickerForm from "@/components/DatePicker";
+import BasicTimePicker from "@/components/TimePicker";
 import EmailInput from "@/components/EmailInput";
 import PhoneInput from "@/components/PhoneInput";
 
@@ -52,14 +54,14 @@ const AppointmentForm: React.FC = () => {
                             onSubmit={handleSubmit(onSubmit)}
                         >
                             <Grid container spacing={2}>
-                                <Grid item xs={2} sx={{display: "flex", alignItems: "center"}}>
+                                <Grid item xs={12} md={2} sx={{display: "flex", alignItems: "center"}}>
                                     <Typography variant="overline" gutterBottom
                                         sx={{textDecoration: "underline 3px #1976d2", textDecorationSkipInk: "none"}}
                                     >
                                         Специалист
                                     </Typography>
                                 </Grid>
-                                <Grid item xs={7}>
+                                <Grid item xs={12} md={7}>
                                     <Stack direction="row" sx={{alignItems: "center"}}>
                                         <Image
                                             src="/person.png"
@@ -75,30 +77,38 @@ const AppointmentForm: React.FC = () => {
                             </Grid>
 
                             <Grid container spacing={2}>
-                                <Grid item xs={2} sx={{display: "flex", alignItems: "center"}}>
-                                    <Typography variant="overline" display="block" gutterBottom>
+                                <Grid item xs={12} md={2}>
+                                    <Typography variant="overline" display="block" gutterBottom sx={{marginTop: "18px"}}>
                                         Дата и время
                                     </Typography>
                                 </Grid>
-                                <Grid item xs={6}>
-                                    <Typography variant="h6" gutterBottom>
-                                        there should be Date and Time pckers
+                                <Grid item xs={12} md={6}>
+                                    <Stack direction="row" spacing={1}>
+                                        <DatePickerForm control={control} name="date"/>
+                                        <BasicTimePicker />
+                                    </Stack>
+                                    <Typography
+                                        variant="body2"
+                                        className={styles.nicknameTooltip}
+                                        sx={{marginTop: "4px"}}
+                                    >
+                                        Выбрать ближайшее доступное время
                                     </Typography>
                                 </Grid>
-                                <Grid item xs={4}>
-                                    <Typography variant="body2" gutterBottom>
+                                <Grid item xs={12} md={4}>
+                                    <Typography variant="body2" gutterBottom sx={{marginTop: "20px"}}>
                                         Длительность сеанса - 2 часа
                                     </Typography>
                                 </Grid>
                             </Grid>
 
                             <Grid container spacing={2}>
-                                <Grid item xs={2} sx={{display: "flex", alignItems: "center"}}>
-                                    <Typography variant="overline" display="block" gutterBottom>
+                                <Grid item xs={12} md={2}>
+                                    <Typography variant="overline" display="block" gutterBottom sx={{marginTop: "14px"}}>
                                         Имя или псевдоним
                                     </Typography>
                                 </Grid>
-                                <Grid item xs={6}>
+                                <Grid item xs={12} md={6}>
                                     <Controller
                                         control={ control }
                                         name="nickname"
@@ -118,7 +128,7 @@ const AppointmentForm: React.FC = () => {
                                         Сгенерировать псевдоним
                                     </Typography>
                                 </Grid>
-                                <Grid item xs={4}>
+                                <Grid item xs={12} md={4}>
                                     <Typography variant="body2" gutterBottom>
                                         Можете указать псевдоним, если не хотите раскрывать имя. Ваши данные строго конфиденциальны
                                     </Typography>
@@ -126,12 +136,12 @@ const AppointmentForm: React.FC = () => {
                             </Grid>
 
                             <Grid container spacing={2}>
-                                <Grid item xs={2} sx={{display: "flex", alignItems: "center"}}>
+                                <Grid item xs={12} md={2} sx={{display: "flex", alignItems: "center"}}>
                                     <Typography variant="overline" display="block" gutterBottom>
                                         EMAIL
                                     </Typography>
                                 </Grid>
-                                <Grid item xs={6}>
+                                <Grid item xs={12} md={6}>
                                     <EmailInput
                                         name="email"
                                         control={control}
@@ -141,12 +151,12 @@ const AppointmentForm: React.FC = () => {
                             </Grid>
 
                             <Grid container spacing={2}>
-                                <Grid item xs={2} sx={{display: "flex", alignItems: "center"}}>
+                                <Grid item xs={12} md={2} sx={{display: "flex", alignItems: "center"}}>
                                     <Typography variant="overline" display="block" gutterBottom>
                                         Телефон
                                     </Typography>
                                 </Grid>
-                                <Grid item xs={6}>
+                                <Grid item xs={12} md={6}>
                                     <PhoneInput
                                         name="phone"
                                         control={control}
@@ -157,12 +167,12 @@ const AppointmentForm: React.FC = () => {
                             </Grid>
 
                             <Grid container spacing={2}>
-                                <Grid item xs={2} sx={{display: "flex", alignItems: "center"}}>
+                                <Grid item xs={12} md={2} sx={{display: "flex", alignItems: "center"}}>
                                     <Typography variant="overline" display="block" gutterBottom>
                                         Промокод
                                     </Typography>
                                 </Grid>
-                                <Grid item xs={6}>
+                                <Grid item xs={12} md={6}>
                                     <Controller
                                         control={ control }
                                         name="promocode"
@@ -175,7 +185,7 @@ const AppointmentForm: React.FC = () => {
                                         )}
                                     />
                                 </Grid>
-                                <Grid item xs={4}>
+                                <Grid item xs={12} md={4} sx={{display: "flex", alignItems: "center"}}>
                                     <Typography variant="body2" gutterBottom>
                                         Код из подарочного сертификата тоже сюда
                                     </Typography>
@@ -183,12 +193,12 @@ const AppointmentForm: React.FC = () => {
                             </Grid>
 
                             <Grid container spacing={2}>
-                                <Grid item xs={2}>
+                                <Grid item xs={12} md={2}>
                                     <Typography variant="overline" display="block" gutterBottom>
                                         Согласия
                                     </Typography>
                                 </Grid>
-                                <Grid item xs={7}>
+                                <Grid item xs={12} md={7}>
                                     <FormGroup>
                                         <FormControlLabel
                                             control={<Checkbox />}
@@ -203,12 +213,12 @@ const AppointmentForm: React.FC = () => {
                             </Grid>
 
                             <Grid container spacing={2} className={styles.totalContainer}>
-                                <Grid item xs={2}>
+                                <Grid item xs={12} md={2} sx={{paddingTop: "0px !important"}}>
                                     <Typography variant="overline" display="block" sx={{marginTop: "2px"}}>
                                         Итого
                                     </Typography>
                                 </Grid>
-                                <Grid item xs={6}>
+                                <Grid item xs={12} md={6} sx={{paddingTop: "0px !important"}}>
                                     <Stack direction="row">
                                         <span className={styles.totalPrice}>4 965</span>
                                         <Button
@@ -220,7 +230,7 @@ const AppointmentForm: React.FC = () => {
                                         </Button>
                                     </Stack>
                                 </Grid>
-                                <Grid item xs={4}>
+                                <Grid item xs={12} md={4} sx={{display: "flex", alignItems: "center", paddingTop: "0px !important"}}>
                                     <Typography variant="body2" gutterBottom>
                                         После оплаты мы пришлем вам доступ на платформу
                                     </Typography>
