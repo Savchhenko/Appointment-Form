@@ -14,6 +14,8 @@ import Checkbox from "@mui/material/Checkbox";
 import Button from "@mui/material/Button";
 import Image from "next/image";
 
+import PhoneInput from "@/components/PhoneInput";
+
 import { useForm, Controller } from "react-hook-form";
 
 import styles from "./appointment.form.module.css";
@@ -28,7 +30,7 @@ const AppointmentForm: React.FC = () => {
 
     const { handleSubmit, control } = useForm({ defaultValues });
 
-    const onSubmit = (data) => {
+    const onSubmit = (data: Object) => {
         console.log(data)
     };
 
@@ -150,16 +152,11 @@ const AppointmentForm: React.FC = () => {
                                     </Typography>
                                 </Grid>
                                 <Grid item xs={6}>
-                                    <Controller
-                                        control={ control }
+                                    <PhoneInput
                                         name="phone"
-                                        render={({ field: { onChange, value }}) => (
-                                            <TextField
-                                                fullWidth={true}
-                                                onChange={onChange}
-                                                value={value}
-                                            />
-                                        )}
+                                        control={control}
+                                        variant="outlined"
+                                        fullWidth
                                     />
                                 </Grid>
                             </Grid>
