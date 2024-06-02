@@ -1,22 +1,37 @@
 "use client";
 
 import React from "react";
-import Typography from '@mui/material/Typography';
-import Modal from '@mui/material/Modal';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import Grid from '@mui/material/Grid';
-import Stack from '@mui/material/Stack';
-import TextField from '@mui/material/TextField';
-import FormGroup from '@mui/material/FormGroup';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
-import Button from '@mui/material/Button';
+import Typography from "@mui/material/Typography";
+import Modal from "@mui/material/Modal";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import Grid from "@mui/material/Grid";
+import Stack from "@mui/material/Stack";
+import TextField from "@mui/material/TextField";
+import FormGroup from "@mui/material/FormGroup";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import Checkbox from "@mui/material/Checkbox";
+import Button from "@mui/material/Button";
 import Image from "next/image";
+
+import { useForm, Controller } from "react-hook-form";
 
 import styles from "./appointment.form.module.css";
 
 const AppointmentForm: React.FC = () => {
+    const defaultValues = {
+        nickname: "Иван Константинов",
+        email: "example@email.ru",
+        phone: "+79997207788",
+        promocode: "",
+    };
+
+    const { handleSubmit, control } = useForm({ defaultValues });
+
+    const onSubmit = (data) => {
+        console.log(data)
+    };
+
 
     return (
         <div style={{width: "100vw", height: "100vh"}}>
@@ -29,7 +44,10 @@ const AppointmentForm: React.FC = () => {
             >
                 <Card style={{height: "95vh"}}>
                     <CardContent style={{height: "100%"}}>
-                        <form className={styles.form}>
+                        <form
+                            className={styles.form}
+                            onSubmit={handleSubmit(onSubmit)}
+                        >
                             <Grid container spacing={2}>
                                 <Grid item xs={2} sx={{display: "flex", alignItems: "center"}}>
                                     <Typography variant="overline" gutterBottom
@@ -78,9 +96,17 @@ const AppointmentForm: React.FC = () => {
                                     </Typography>
                                 </Grid>
                                 <Grid item xs={6}>
-                                    <Typography variant="h6" gutterBottom>
-                                        input with name or nickname
-                                    </Typography>
+                                    <Controller
+                                        control={ control }
+                                        name="nickname"
+                                        render={({ field: { onChange, value }}) => (
+                                            <TextField
+                                                fullWidth={true}
+                                                onChange={onChange}
+                                                value={value}
+                                            />
+                                        )}
+                                    />
                                 </Grid>
                                 <Grid item xs={4}>
                                     <Typography variant="body2" gutterBottom>
@@ -169,6 +195,7 @@ const AppointmentForm: React.FC = () => {
                                         <Button
                                             variant="contained"
                                             sx={{borderRadius: "20px", width: "50%"}}
+                                            type="submit"
                                         >
                                             Оплатить
                                         </Button>
