@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import Card from "@mui/material/Card";
@@ -30,18 +30,19 @@ const AppointmentForm: React.FC = () => {
         phone: "+79997207788",
         promocode: "",
     };
+    const [isOpen, setIsOpen] = useState(true);
 
     const { handleSubmit, control, setError, } = useForm({ defaultValues });
 
     const onSubmit = (data: Object) => {
-        console.log(data)
+        console.log("Form data", data);
+        setIsOpen(false);
     };
-
 
     return (
         <div style={{width: "100vw", height: "100vh"}}>
             <Modal
-                open={true}
+                open={isOpen}
                 // onClose={handleClose}
                 className={styles.modal}
                 aria-labelledby="simple-modal-title"
@@ -240,6 +241,19 @@ const AppointmentForm: React.FC = () => {
                     </CardContent>
                 </Card>
             </Modal>
+
+            {
+                !isOpen ?
+                    <section className={styles.successSection}>
+                        <Typography className={styles.successTitle} variant="h3">
+                            Оплата прошла успешно,<br/>спасибо!
+                        </Typography>
+                        <Typography className={styles.successSubtitle} variant="h6">
+                            Вы стали на шаг ближе к ответам<br/> на ваши вопросы
+                        </Typography>
+                    </section>
+                : null
+            }
         </div>
     )
 };
