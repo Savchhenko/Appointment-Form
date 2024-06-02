@@ -107,6 +107,13 @@ const AppointmentForm: React.FC = () => {
                                             />
                                         )}
                                     />
+                                    <Typography
+                                        variant="body2"
+                                        className={styles.nicknameTooltip}
+                                        sx={{marginTop: "4px"}}
+                                    >
+                                        Сгенерировать псевдоним
+                                    </Typography>
                                 </Grid>
                                 <Grid item xs={4}>
                                     <Typography variant="body2" gutterBottom>
@@ -122,9 +129,17 @@ const AppointmentForm: React.FC = () => {
                                     </Typography>
                                 </Grid>
                                 <Grid item xs={6}>
-                                    <Typography variant="h6" gutterBottom>
-                                        input with email
-                                    </Typography>
+                                    <Controller
+                                        control={ control }
+                                        name="email"
+                                        render={({ field: { onChange, value }}) => (
+                                            <TextField
+                                                fullWidth={true}
+                                                onChange={onChange}
+                                                value={value}
+                                            />
+                                        )}
+                                    />
                                 </Grid>
                             </Grid>
 
@@ -135,9 +150,17 @@ const AppointmentForm: React.FC = () => {
                                     </Typography>
                                 </Grid>
                                 <Grid item xs={6}>
-                                    <Typography variant="h6" gutterBottom>
-                                        input with phone
-                                    </Typography>
+                                    <Controller
+                                        control={ control }
+                                        name="phone"
+                                        render={({ field: { onChange, value }}) => (
+                                            <TextField
+                                                fullWidth={true}
+                                                onChange={onChange}
+                                                value={value}
+                                            />
+                                        )}
+                                    />
                                 </Grid>
                             </Grid>
 
@@ -148,12 +171,16 @@ const AppointmentForm: React.FC = () => {
                                     </Typography>
                                 </Grid>
                                 <Grid item xs={6}>
-                                    <TextField
-                                        id="outlined-basic"
-                                        label="Промокод"
-                                        variant="outlined"
-                                        color="primary"
-                                        fullWidth={true}
+                                    <Controller
+                                        control={ control }
+                                        name="promocode"
+                                        render={({ field: { onChange, value }}) => (
+                                            <TextField
+                                                fullWidth={true}
+                                                onChange={onChange}
+                                                value={value}
+                                            />
+                                        )}
                                     />
                                 </Grid>
                                 <Grid item xs={4}>

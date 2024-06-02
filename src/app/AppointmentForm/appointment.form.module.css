@@ -12,6 +12,12 @@
     justify-content: space-between;
 }
 
+.nicknameTooltip {
+    color: #ccc;
+    text-decoration: dashed;
+    cursor: pointer;
+}
+
 .totalContainer {
     background-color: blanchedalmond;
     border-radius: 20px;
