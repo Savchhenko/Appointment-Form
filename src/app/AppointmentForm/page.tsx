@@ -12,6 +12,7 @@ import FormGroup from "@mui/material/FormGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 import Button from "@mui/material/Button";
+import Box from '@mui/material/Box';
 import Image from "next/image";
 
 import DatePickerForm from "@/components/DatePicker";
@@ -193,7 +194,7 @@ const AppointmentForm: React.FC = () => {
                                 </Grid>
                             </Grid>
 
-                            <Grid container spacing={2}>
+                            <Grid container spacing={2} sx={{marginBottom: "16px"}}>
                                 <Grid item xs={12} md={2}>
                                     <Typography variant="overline" display="block" gutterBottom>
                                         Согласия
@@ -214,13 +215,13 @@ const AppointmentForm: React.FC = () => {
                             </Grid>
 
                             <Grid container spacing={2} className={styles.totalContainer}>
-                                <Grid item xs={12} md={2} sx={{paddingTop: "0px !important"}}>
-                                    <Typography variant="overline" display="block" sx={{marginTop: "2px"}}>
+                                <Grid item xs={12} md={2} sx={{paddingTop: "0px !important", display: "flex", justifyContent: "center"}}>
+                                    <Typography variant="overline" display="block" sx={{marginTop: "2px", width: "max-content"}}>
                                         Итого
                                     </Typography>
                                 </Grid>
                                 <Grid item xs={12} md={6} sx={{paddingTop: "0px !important"}}>
-                                    <Stack direction="row">
+                                    <Box className={styles.priceContainer}>
                                         <span className={styles.totalPrice}>4 965</span>
                                         <Button
                                             variant="contained"
@@ -229,10 +230,10 @@ const AppointmentForm: React.FC = () => {
                                         >
                                             Оплатить
                                         </Button>
-                                    </Stack>
+                                    </Box>
                                 </Grid>
                                 <Grid item xs={12} md={4} sx={{display: "flex", alignItems: "center", paddingTop: "0px !important"}}>
-                                    <Typography variant="body2" gutterBottom>
+                                    <Typography variant="body2" gutterBottom className={styles.summarySubtitle}>
                                         После оплаты мы пришлем вам доступ на платформу
                                     </Typography>
                                 </Grid>
